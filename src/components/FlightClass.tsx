@@ -16,7 +16,7 @@ const FlightClass: React.FC<SeatInfoProps> = ({ classType, boardingTime }) => {
             <Text style={styles.classTitle}>{firstLetter}</Text>
       </View>
       <View style={styles.info}>
-            <Text style={styles.info}> {classType}</Text>
+            <Text style={[styles.info, {color: 'blue'}]}> {classType}</Text>
             <Text style={[styles.info,{color:'blue'}]}>BOARDING: {boardingTime}</Text>
       </View>
     </View>

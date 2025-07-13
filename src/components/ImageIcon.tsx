@@ -15,7 +15,6 @@ const ImageIcon = ({source, size, style} : props) => {
                   source={source}
                   style={{width: size, height: size}}
                   resizeMode='contain'
-                  
             />
 
       
