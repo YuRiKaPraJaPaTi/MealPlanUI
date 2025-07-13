@@ -5,8 +5,10 @@
  * @format
  */
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { StatusBar, StyleSheet, useColorScheme, View} from 'react-native';
+import CheckBox from '@react-native-community/checkbox';
+import MealUI from './src/pages/MealUI';
+import FlightTicket from './src/pages/FlightTicket';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -14,7 +16,12 @@ function App() {
   return (
     <View style={styles.container}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
+
+      {/* <MealUI /> */}
+
+      <FlightTicket />
+      
+      
     </View>
   );
 }
@@ -22,6 +29,7 @@ function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
   },
 });
 
