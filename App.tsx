@@ -9,6 +9,7 @@ import { StatusBar, StyleSheet, useColorScheme, View} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import MealUI from './src/pages/MealUI';
 import FlightTicket from './src/pages/FlightTicket';
+import { ThemeProvider } from '../MealPlanUI/src/context/ThemeContext';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -19,7 +20,9 @@ function App() {
 
       {/* <MealUI /> */}
 
-      <FlightTicket />
+      <ThemeProvider>
+        <FlightTicket />
+      </ThemeProvider>
       
       
     </View>

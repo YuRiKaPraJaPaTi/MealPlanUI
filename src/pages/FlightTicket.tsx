@@ -6,11 +6,13 @@ import {
   ImageBackground,
   Image,
   Dimensions,
+  TouchableOpacity
 } from 'react-native';
-import FlightClass from '../components/FlightClass';
-import FlightInfo from '../components/AirportDetails';
-import { FlightPoint } from '../components/AirportDetails';
-import FlightSeatDetails from '../components/FlightSeatDetails';
+import FlightClass from '../components/Flight/FlightClass';
+import FlightInfo from '../components/Flight/AirportDetails';
+import { FlightPoint } from '../components/Flight/AirportDetails';
+import FlightSeatDetails from '../components/Flight/FlightSeatDetails';
+import { useTheme } from '../context/ThemeContext';
 
 
 const { height } = Dimensions.get('window');
@@ -33,13 +35,14 @@ const flight: { departure: FlightPoint; arrival: FlightPoint } = {
 }
 
 export default function FlightTicket() {
-      
+      const { theme, toggleTheme } = useTheme();
+
 
   return (
       <View style={styles.container}>
             {/* Top Section */}
             <ImageBackground
-            source={require('../../assets/skyImages.jpg')}
+            source={theme.backgroundImage}
             style={styles.topSection}
                   
             >
@@ -60,12 +63,15 @@ export default function FlightTicket() {
                         classType={'Business Class'}
                         boardingTime={'7:55 AM'}
                   />
+                  <TouchableOpacity onPress={toggleTheme} style={styles.toggleBtn}>
+                        <Text style={{ color: theme.textColor }}>Toggle Theme</Text>
+                  </TouchableOpacity>
 
             </ImageBackground>
             
 
             {/* Middle Section */}
-            <View style={[styles.middleSection, { backgroundColor: '#f1f1f1' }]}>
+            <View style={[styles.middleSection, { backgroundColor: theme.backgroundColor }]}>
                   <View>
                         <FlightInfo flight={flight} />
                   </View>
@@ -93,7 +99,7 @@ export default function FlightTicket() {
                               </View>
 
                               <View style={styles.flightSpeedRight}>
-                                    <Text>kjdjb</Text>
+                                    <Text style={{fontSize:24,color:theme.textColor}}>A350-1000</Text>
                               </View>
                         </View>
             
@@ -124,6 +130,7 @@ const styles = StyleSheet.create({
             height: height * 0.35,
             paddingVertical: 20,
             paddingHorizontal: 30,
+            position: 'relative',
       },
       topContent: {
             flexDirection: 'row',
@@ -133,6 +140,16 @@ const styles = StyleSheet.create({
       topRightContent: {
             flexDirection: 'column',
 
+      },
+      toggleBtn: {
+            padding: 10,
+            alignSelf: 'flex-end',
+            // backgroundColor: '#3e242455',
+            borderRadius: 8,
+            position: 'absolute',
+            right: 20,           // distance from right edge
+            top: '50%',
+             elevation: 4,
       },
       middleSection: {
             height: height * 0.7, 
@@ -174,8 +191,9 @@ const styles = StyleSheet.create({
       qrImageContainer: {
             position: 'absolute',
             bottom: height * 0.03, 
-            left: '50%',
-            transform: [{ translateX: -50 }],
+            // left: '50%',
+            // transform: [{ translateX: - 75 }],
+            alignSelf: 'center',
             width: 150,
             height: 150,
             zIndex: 2,

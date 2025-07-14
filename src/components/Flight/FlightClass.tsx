@@ -16,8 +16,8 @@ const FlightClass: React.FC<SeatInfoProps> = ({ classType, boardingTime }) => {
             <Text style={styles.classTitle}>{firstLetter}</Text>
       </View>
       <View style={styles.info}>
-            <Text style={[styles.info, {color: 'blue'}]}> {classType}</Text>
-            <Text style={[styles.info,{color:'blue'}]}>BOARDING: {boardingTime}</Text>
+            <Text style={[styles.info, {color: 'white'}]}> {classType}</Text>
+            <Text style={[styles.info,{color:'#007aff'}]}>BOARDING: {boardingTime}</Text>
       </View>
     </View>
   );
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
       square: {
             width: 40,
             height: 40,
-            backgroundColor: 'blue',
+            backgroundColor: '#007aff',
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 15,

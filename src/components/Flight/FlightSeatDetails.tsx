@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-
+import { useTheme } from '../../context/ThemeContext';
 
 
 type props = {
@@ -10,10 +10,11 @@ type props = {
 }
 
 const FlightSeatDetails = ({title, value}:props) => {
+      const { theme } = useTheme();
   return (
     <View>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.value}>{value}</Text>
+      <Text style={[styles.title,{color:theme.textColor}]}>{title}</Text>
+      <Text style={[styles.value, {color:theme.textColor}]}>{value}</Text>
     </View>
   )
 }

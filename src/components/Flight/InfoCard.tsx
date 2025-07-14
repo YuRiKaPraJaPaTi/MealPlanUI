@@ -3,7 +3,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { FlightPoint } from './AirportDetails';
-import ImageIcon from './ImageIcon';
+import ImageIcon from '../ImageIcon';
+import { useTheme } from '../../context/ThemeContext';
 
 interface InfoCardProps {
       info: FlightPoint;
@@ -13,19 +14,20 @@ const InfoCard = ({ info } : InfoCardProps) => {
       const { type, time, location, airportCode } = info;
       const label = type === 'departure' ? 'Departure' : 'Arrival';
       const accentColor = type === 'departure' ? '#007aff' : '#ffcc00';
+      const { theme } = useTheme();
 
   return (
       <View style={styles.card}>
-            <Text style={styles.time}>{time}</Text>
-            <Text style={styles.location}>{location}</Text>
-            <Text style={styles.code}>{airportCode}</Text>
+            <Text style={[styles.time, { color: theme.textColor }]}>{time}</Text>
+            <Text style={[styles.location, { color: theme.textColor }]}>{location}</Text>
+            <Text style={[styles.code, { color: theme.textColor }]}>{airportCode}</Text>
             <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 4, gap:5}}>
                   {type === 'arrival' && (
-                  <ImageIcon source={require('../../assets/arrivalIcon.png')} size={30}/>
+                  <ImageIcon source={require('../../../assets/arrivalIcon.png')} size={30}/>
                   )}
                   <Text style={[styles.label, { color: accentColor }]}>{label}</Text>
                   {type === 'departure' && (
-                  <ImageIcon source={require('../../assets/departureIcon.png')} size={30}  />
+                  <ImageIcon source={require('../../../assets/departureIcon.png')} size={30}  />
                   )}
             </View>
       </View>
@@ -49,11 +51,11 @@ const styles = StyleSheet.create({
             fontWeight: 'bold',
             flexShrink: 1,
             flexWrap: 'wrap',
-            color: '#333',
+            
       },
       code: {
             fontSize: 16,
-            color: '#555',
+            
       },
       label: {
             fontSize: 24,
