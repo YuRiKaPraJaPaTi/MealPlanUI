@@ -16,14 +16,18 @@ interface FlightInfoProps {
     departure: FlightPoint;
     arrival: FlightPoint;
   };
+  theme: {
+    textColor: string;
+    backgroundColor: string;
+  }
 }
 
-const FlightInfo = ({ flight }: FlightInfoProps) => {
+const FlightInfo = ({ flight, theme}: FlightInfoProps) => {
   return (
    <View style={styles.ticket}>
       
       <View>
-        <InfoCard info={flight.departure} />
+        <InfoCard info={flight.departure} theme={theme}/>
       </View>
 
       
@@ -33,7 +37,7 @@ const FlightInfo = ({ flight }: FlightInfoProps) => {
       </View>
       
       <View >
-        <InfoCard info={flight.arrival} />
+        <InfoCard info={flight.arrival} theme={theme}/>
       </View>
     </View>
   );

@@ -4,23 +4,26 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { FlightPoint } from './AirportDetails';
 import ImageIcon from '../ImageIcon';
-import { useTheme } from '../../context/ThemeContext';
+// import { useTheme } from '../../context/ThemeContext';
 
 interface InfoCardProps {
       info: FlightPoint;
+      theme: {
+            textColor: string;
+      }
 }
 
-const InfoCard = ({ info } : InfoCardProps) => {
+const InfoCard = ({ info, theme} : InfoCardProps) => {
       const { type, time, location, airportCode } = info;
       const label = type === 'departure' ? 'Departure' : 'Arrival';
       const accentColor = type === 'departure' ? '#007aff' : '#ffcc00';
-      const { theme } = useTheme();
+      // const { theme } = useTheme();
 
   return (
       <View style={styles.card}>
-            <Text style={[styles.time, { color: theme.textColor }]}>{time}</Text>
-            <Text style={[styles.location, { color: theme.textColor }]}>{location}</Text>
-            <Text style={[styles.code, { color: theme.textColor }]}>{airportCode}</Text>
+            <Text style={[styles.time, {color:theme.textColor}]}>{time}</Text>
+            <Text style={[styles.location, {color:theme.textColor}]}>{location}</Text>
+            <Text style={[styles.code, {color:theme.textColor}]}>{airportCode}</Text>
             <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 4, gap:5}}>
                   {type === 'arrival' && (
                   <ImageIcon source={require('../../../assets/arrivalIcon.png')} size={30}/>

@@ -12,7 +12,7 @@ import FlightClass from '../components/Flight/FlightClass';
 import FlightInfo from '../components/Flight/AirportDetails';
 import { FlightPoint } from '../components/Flight/AirportDetails';
 import FlightSeatDetails from '../components/Flight/FlightSeatDetails';
-import { useTheme } from '../context/ThemeContext';
+// import { useTheme } from '../context/ThemeContext';
 
 
 const { height } = Dimensions.get('window');
@@ -34,8 +34,18 @@ const flight: { departure: FlightPoint; arrival: FlightPoint } = {
     },
 }
 
-export default function FlightTicket() {
-      const { theme, toggleTheme } = useTheme();
+interface themeProps {
+      theme: {
+            backgroundColor: string;
+            textColor: string;
+            backgroundImage: any;
+      };
+      onToggleTheme: () => void;
+
+}
+
+export default function FlightTicket({theme, onToggleTheme}: themeProps) {
+      // const { theme, toggleTheme } = useTheme();
 
 
   return (
@@ -63,7 +73,7 @@ export default function FlightTicket() {
                         classType={'Business Class'}
                         boardingTime={'7:55 AM'}
                   />
-                  <TouchableOpacity onPress={toggleTheme} style={styles.toggleBtn}>
+                  <TouchableOpacity onPress={onToggleTheme} style={styles.toggleBtn}>
                         <Text style={{ color: theme.textColor }}>Toggle Theme</Text>
                   </TouchableOpacity>
 
@@ -73,19 +83,22 @@ export default function FlightTicket() {
             {/* Middle Section */}
             <View style={[styles.middleSection, { backgroundColor: theme.backgroundColor }]}>
                   <View>
-                        <FlightInfo flight={flight} />
+                        <FlightInfo flight={flight} theme={theme} />
                   </View>
 
                   <View style={styles.flightSeatContainer}>
                               <View>
-                                    <FlightSeatDetails title='FLIGHT' value='TLC758' />
+                                    <FlightSeatDetails title='FLIGHT' value='TLC758' 
+                                    theme={theme}/>
                               </View>
                               <View>
-                                    <FlightSeatDetails title='SEAT' value='158' />
+                                    <FlightSeatDetails title='SEAT' value='158' 
+                                    theme={theme}/>
                                     
                               </View>
                               <View>
-                                    <FlightSeatDetails title='TERMINAL' value='02' />
+                                    <FlightSeatDetails title='TERMINAL' value='02' 
+                                    theme={theme}/>
                               </View>
                         </View>
 

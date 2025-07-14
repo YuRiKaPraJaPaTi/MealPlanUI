@@ -7,7 +7,7 @@ interface SeatInfoProps {
   boardingTime: string;
 }
 
-const FlightClass: React.FC<SeatInfoProps> = ({ classType, boardingTime }) => {
+const FlightClass = ({ classType, boardingTime }:SeatInfoProps) => {
       const firstLetter = classType.charAt(0).toUpperCase();
   return (
     <View style={styles.container}>

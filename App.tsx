@@ -10,21 +10,24 @@ import CheckBox from '@react-native-community/checkbox';
 import MealUI from './src/pages/MealUI';
 import FlightTicket from './src/pages/FlightTicket';
 import { ThemeProvider } from '../MealPlanUI/src/context/ThemeContext';
+import { useState } from 'react';
+import { darkTheme, lightTheme } from './src/context/theme';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+  const [isDarkTheme, setIsDarkTheme ] = useState(false)
+  const theme = isDarkTheme ? darkTheme : lightTheme
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      
 
       {/* <MealUI /> */}
 
-      <ThemeProvider>
+      {/* <ThemeProvider>
         <FlightTicket />
-      </ThemeProvider>
+      </ThemeProvider> */}
       
-      
+      <FlightTicket theme={theme} onToggleTheme={()=>setIsDarkTheme(!isDarkTheme)} />
     </View>
   );
 }
