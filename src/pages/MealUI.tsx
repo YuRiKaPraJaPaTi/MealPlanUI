@@ -1,59 +1,41 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 import React from 'react'
 import MyButton from '../components/Meal/MyButton'
 import ImageIcon from '../components/Meal/ImageIcon'
-import ScheduleItem from '../components/Meal/ScheduleItem'
 import CalorieCard from '../components/Meal/CalorieCard'
+import Header from '../components/Meal/Header'
+import SectionTitle from '../components/Meal/SectiionTitle'
+import ScheduleList from '../components/Meal/ScheduleList'
+import ButtonGrid from '../components/Meal/ButtonGrid'
+
+const scheduleData = [
+  { title: 'Meal 1', desc: 'Avocado Toast with egg' },
+  { title: 'Meal 2', desc: 'Smoothie Bowl' },
+  { title: 'Meal 3', desc: 'Chicken Salad' },
+  { title: 'Meal 4', desc: 'Chicken Salad' },
+  { title: 'Meal 5', desc: 'Chicken Salad' },
+];
+
+const buttonsData = [
+  { label: 'Log a Food', backgroundColor: '#F0E4D3', source: require('../../assets/searchIcon.png') },
+  { label: 'Voice Log', backgroundColor: '#FCC6FF', source: require('../../assets/voiceIcon.png') },
+  { label: 'Scan a Barcode', backgroundColor: '#D1E9F6', source: require('../../assets/scanBarcodeIcon.png')},
+  { label: 'Scan Meal', backgroundColor: '#FFDCDC', source: require('../../assets/scanMealIcon.png')},
+  ];
+
+
 
 
 const MealUI = () => {
+      
   return (
-    <View style={styles.app}>
-            <View style={styles.top}>
-                  <ImageIcon 
-                        source={require('../../assets/leftArrowIcon.png')}
-                        size={20}
-                        style={styles.backArrow}
-                  />
+    <ScrollView style={styles.app} contentContainerStyle={{ paddingBottom: 20 }} >
 
-                  <Text style={{fontSize: 20,fontWeight:900, textAlign:'center', flex:1}}>Meal Plan</Text>
-
-                  <TouchableOpacity style={styles.saveButton}>
-                        <Text style={{fontSize: 20, color: 'white'}}>Save</Text>
-                  </TouchableOpacity>
-            </View>
+            <Header title='Meal Plan'/>
             
-            <View style={{marginVertical:20}}>
-                  <Text style={{fontSize: 25, fontWeight: 900}}>DAILY MEAL PLAN</Text>
-                  <Text style={{fontSize: 20}}>Fix your healthy body with us</Text>
-            </View>
+            <SectionTitle title='DAILY MEAL PLAN' subtitle='Fix your healthy body with us'/>
 
-            <View style={styles.buttonContainer}>
-                  <View style={styles.row}>
-                  <MyButton 
-                              label='Log a Food'
-                              backgroundColor='#F0E4D3'
-                              source={require('../../assets/searchIcon.png')}
-                        />
-                  <MyButton 
-                              label='Voice Log'
-                              backgroundColor='#FCC6FF'
-                              source={require('../../assets/voiceIcon.png')}
-                        />
-                  </View>
-                  <View style={styles.row}>
-                  <MyButton 
-                              label='Scan a Barcode'
-                              backgroundColor='#D1E9F6'
-                              source={require('../../assets/scanBarcodeIcon.png')}
-                        />
-                  <MyButton 
-                              label='Scan Meal'
-                              backgroundColor='#FFDCDC'
-                              source={require('../../assets/scanMealIcon.png')}
-                        />
-                  </View>
-            </View>
+            <ButtonGrid buttons={buttonsData} />
 
             <View style={styles.infoBox}>
                   <View style={{paddingHorizontal:10, paddingTop:15}}>
@@ -71,43 +53,14 @@ const MealUI = () => {
                   
             </View>
 
-            <View>
-                  <Text style={{fontSize: 25, fontWeight: 900}}>Track your food</Text>
-                  <Text style={{fontSize: 16, color:'gray'}}>Pro tip: It's easy to be consistent if you log as you go. We like the logging while our food is cooking for between bites.</Text>
-            </View>
+            <SectionTitle title='Track your food' subtitle='Pro tip: Its easy to be consistent if you log as you go. We like the logging while our food is cooking for between bites.'
+            />
 
-            <View style={styles.scheduleContainer}>
-                  <View style={{flexDirection:'row', paddingTop: 5 }}> 
-                        <Text style={{fontSize:20, fontWeight: 900, flex:1}}> YOUR SCHEDULES</Text>
-                        <ImageIcon
-                              source={require('../../assets/plusIcon.png')}
-                              size={20}
-                              style={styles.plusIcon}
-                        />
-                  </View>
-                  <View>
-                        <Text>In Progress</Text>
-                  </View>
+            <ScheduleList schedules={scheduleData} />
 
-                  <View style={styles.scheduleCollection}>
-                        <ScheduleItem 
-                              title='Meal 1'
-                              desc='Avacado Toast with egg'
-                        />
-                        <ScheduleItem 
-                              title='Meal 1'
-                              desc='Avacado Toast with egg'
-                        />
-                        <ScheduleItem 
-                              title='Meal 1'
-                              desc='Avacado Toast with egg'
-                        />
-                  </View>
-
-            </View>
 
             
-    </View>
+    </ScrollView>
   )
 }
 
@@ -119,27 +72,6 @@ const styles = StyleSheet.create({
             paddingTop: 20,
             paddingHorizontal: 20,
             backgroundColor: 'white',
-      },
-      top: {
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-      },
-
-      backArrow: {
-            // margin: 20,
-            backgroundColor: '#f1f1f1',
-            padding: 10,
-            borderRadius: 20,
-      },
-
-      saveButton: {
-            height:40,
-            width: 90,
-            backgroundColor: 'blue',
-            borderRadius: 20,
-            justifyContent:'center',
-            alignItems: 'center',
       },
       
       buttonContainer: {
@@ -157,7 +89,7 @@ const styles = StyleSheet.create({
             backgroundColor: '#f1f1f1',
             borderRadius: 20,
             paddingHorizontal: 10,
-            marginVertical: 20,
+            marginTop: 20,
             shadowColor: 'red',
             shadowOffset: { width: 8, height: 8 },
             shadowOpacity: 0.3,
@@ -171,32 +103,5 @@ const styles = StyleSheet.create({
             paddingHorizontal: 10,
             paddingVertical: 20,
       },
-      scheduleContainer: {
-            // width: '100%',
-            flex:1,
-            backgroundColor: '#f1f1f1',
-            borderTopLeftRadius: 30,
-            borderTopRightRadius: 30,
-            paddingHorizontal: 15,
-            paddingTop: 20,
-            marginVertical: 20,
-            shadowColor: 'red',
-            shadowOffset: { width: 8, height: 8 },
-            shadowOpacity: 0.3,
-            shadowRadius: 6,
-            elevation: 5,
-      },
-      plusIcon: {
-            height: 30,
-            width: 30,
-            borderWidth: 2,
-            borderColor: 'blue',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 7,
-      },
-      scheduleCollection: {
-            marginVertical: 10,
-            gap: 10,
-      }
+      
 })
