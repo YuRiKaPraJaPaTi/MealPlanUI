@@ -23,7 +23,7 @@ const ButtonGrid = ({ buttons }: ButtonGridProps) => {
         <MyButton {...item} />
       )}
       numColumns={2}
-      columnWrapperStyle={{ justifyContent: 'space-around', marginVertical: 4 }}
+      columnWrapperStyle={{ justifyContent: 'space-between', marginVertical: 4 }}
       // contentContainerStyle={{ backgroundColor:'red' }}
     />
   );

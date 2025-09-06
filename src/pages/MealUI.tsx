@@ -12,6 +12,8 @@ const scheduleData = [
   { title: 'Meal 1', desc: 'Avocado Toast with egg' },
   { title: 'Meal 2', desc: 'Smoothie Bowl' },
   { title: 'Meal 3', desc: 'Chicken Salad' },
+  { title: 'Meal 4', desc: 'Chicken Salad' },
+  { title: 'Meal 5', desc: 'Chicken Salad' },
 ];
 
 const buttonsData = [
@@ -27,7 +29,7 @@ const buttonsData = [
 const MealUI = () => {
       
   return (
-    <ScrollView style={styles.app}>
+    <ScrollView style={styles.app} contentContainerStyle={{ paddingBottom: 20 }} >
 
             <Header title='Meal Plan'/>
             
@@ -66,7 +68,7 @@ export default MealUI
 
 const styles = StyleSheet.create({
       app: {
-            // flex: 1,
+            flex: 1,
             paddingTop: 20,
             paddingHorizontal: 20,
             backgroundColor: 'white',
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
             backgroundColor: '#f1f1f1',
             borderRadius: 20,
             paddingHorizontal: 10,
-            marginVertical: 20,
+            marginTop: 20,
             shadowColor: 'red',
             shadowOffset: { width: 8, height: 8 },
             shadowOpacity: 0.3,
