@@ -1,9 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import MyButton from '../components/Meal/MyButton'
-import MyText from '../components/Meal/MyText'
 import ImageIcon from '../components/Meal/ImageIcon'
 import ScheduleItem from '../components/Meal/ScheduleItem'
+import CalorieCard from '../components/Meal/CalorieCard'
 
 
 const MealUI = () => {
@@ -64,20 +64,9 @@ const MealUI = () => {
                   </View>
 
                   <View style={styles.rowContainer}>
-                        <View style={styles.column}>
-                              <MyText content='Calories Goal' fontSize={18}/>
-                              <Text style={styles.calorieValue}><Text style={{fontWeight:'bold'}}>1,908 </Text>Kcal</Text>
-                        </View>
-                        <View style={styles.column}>
-                              <MyText content='Calories Ate' fontSize={18}/>
-                              <Text style={styles.calorieValue}><Text style={{fontWeight:'bold'}}>1,908 </Text>Kcal</Text>
-                              
-                        </View>
-                        <View style={styles.column}>
-                              <MyText content='Calories Left' fontSize={18}/>
-                              <Text style={styles.calorieValue}><Text style={{fontWeight:'bold'}}>1,908 </Text>Kcal</Text>
-                              
-                        </View>
+                        <CalorieCard title="Calories Goal" value="1,908" />
+                        <CalorieCard title="Calories Ate" value="1,908" />
+                        <CalorieCard title="Calories Left" value="1,908" />
                   </View>
                   
             </View>
@@ -181,15 +170,6 @@ const styles = StyleSheet.create({
             width: '100%',
             paddingHorizontal: 10,
             paddingVertical: 20,
-      },
-      column: {
-            flex: 1,
-            justifyContent: 'center',     
-            alignItems: 'center',        
-      },
-      calorieValue: {
-            fontSize: 22,
-            color: 'gray',
       },
       scheduleContainer: {
             // width: '100%',
