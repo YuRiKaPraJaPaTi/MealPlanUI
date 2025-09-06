@@ -1,14 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import MyButton from '../components/Meal/MyButton'
 import ImageIcon from '../components/Meal/ImageIcon'
-import ScheduleItem from '../components/Meal/ScheduleItem'
 import CalorieCard from '../components/Meal/CalorieCard'
 import Header from '../components/Meal/Header'
 import SectionTitle from '../components/Meal/SectiionTitle'
+import ScheduleList from '../components/Meal/ScheduleList'
 
+const scheduleData = [
+  { title: 'Meal 1', desc: 'Avocado Toast with egg' },
+  { title: 'Meal 2', desc: 'Smoothie Bowl' },
+  { title: 'Meal 3', desc: 'Chicken Salad' },
+];
 
 const MealUI = () => {
+      
   return (
     <View style={styles.app}>
 
@@ -62,35 +68,8 @@ const MealUI = () => {
             <SectionTitle title='Track your food' subtitle='Pro tip: Its easy to be consistent if you log as you go. We like the logging while our food is cooking for between bites.'
             />
 
-            <View style={styles.scheduleContainer}>
-                  <View style={{flexDirection:'row', paddingTop: 5 }}> 
-                        <Text style={{fontSize:20, fontWeight: 900, flex:1}}> YOUR SCHEDULES</Text>
-                        <ImageIcon
-                              source={require('../../assets/plusIcon.png')}
-                              size={20}
-                              style={styles.plusIcon}
-                        />
-                  </View>
-                  <View>
-                        <Text>In Progress</Text>
-                  </View>
+            <ScheduleList schedules={scheduleData} />
 
-                  <View style={styles.scheduleCollection}>
-                        <ScheduleItem 
-                              title='Meal 1'
-                              desc='Avacado Toast with egg'
-                        />
-                        <ScheduleItem 
-                              title='Meal 1'
-                              desc='Avacado Toast with egg'
-                        />
-                        <ScheduleItem 
-                              title='Meal 1'
-                              desc='Avacado Toast with egg'
-                        />
-                  </View>
-
-            </View>
 
             
     </View>
@@ -136,32 +115,5 @@ const styles = StyleSheet.create({
             paddingHorizontal: 10,
             paddingVertical: 20,
       },
-      scheduleContainer: {
-            // width: '100%',
-            flex:1,
-            backgroundColor: '#f1f1f1',
-            borderTopLeftRadius: 30,
-            borderTopRightRadius: 30,
-            paddingHorizontal: 15,
-            paddingTop: 20,
-            marginVertical: 20,
-            shadowColor: 'red',
-            shadowOffset: { width: 8, height: 8 },
-            shadowOpacity: 0.3,
-            shadowRadius: 6,
-            elevation: 5,
-      },
-      plusIcon: {
-            height: 30,
-            width: 30,
-            borderWidth: 2,
-            borderColor: 'blue',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: 7,
-      },
-      scheduleCollection: {
-            marginVertical: 10,
-            gap: 10,
-      }
+      
 })
