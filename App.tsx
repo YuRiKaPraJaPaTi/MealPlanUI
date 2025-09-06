@@ -11,12 +11,12 @@ import MealUI from './src/pages/MealUI';
 import FlightTicket from './src/pages/FlightTicket';
 import IcecreamUI from './src/pages/IcecreamUI';
 // import { ThemeProvider } from '../MealPlanUI/src/context/ThemeContext';
-// import { useState } from 'react';
-// import { darkTheme, lightTheme } from './src/context/theme';
+import { useState } from 'react';
+import { darkTheme, lightTheme } from './src/context/theme';
 
 function App() {
-  // const [isDarkTheme, setIsDarkTheme ] = useState(false)
-  // const theme = isDarkTheme ? darkTheme : lightTheme
+  const [isDarkTheme, setIsDarkTheme ] = useState(false)
+  const theme = isDarkTheme ? darkTheme : lightTheme
 
   return (
     <View style={styles.container}>

@@ -34,7 +34,7 @@ const flight: { departure: FlightPoint; arrival: FlightPoint } = {
     },
 }
 
-interface themeProps {
+ export interface ThemeProps {
       theme: {
             backgroundColor: string;
             textColor: string;
@@ -44,7 +44,7 @@ interface themeProps {
 
 }
 
-export default function FlightTicket({theme, onToggleTheme}: themeProps) {
+export default function FlightTicket({theme, onToggleTheme}: ThemeProps) {
       // const { theme, toggleTheme } = useTheme();
 
 

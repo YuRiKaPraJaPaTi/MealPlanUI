@@ -9,6 +9,7 @@ import {
   ScrollView
 } from 'react-native';
 import Icecard from '../components/Icecream/Icecard';
+import Card from '../components/Icecream/Card';
 
 const { height, width } = Dimensions.get('window');
 
@@ -18,13 +19,14 @@ export default function IcecreamUI() {
       
       <View style={styles.topSection}>
         <ImageBackground
-        source={require('../../assets/icecream/icecream.png')}
-        style={styles.image}
-        resizeMode='contain'
-      ><Text style={styles.overlayText}>WELCOME</Text>
-      </ImageBackground>
+          source={require('../../assets/icecream/icecream.png')}
+          style={styles.image}
+          resizeMode='contain'
+        >
+          <Text style={styles.overlayText}>WELCOME</Text>
+        </ImageBackground>
 
-      <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>Menu</Text>
         </TouchableOpacity>
 
@@ -32,28 +34,30 @@ export default function IcecreamUI() {
 
     
 
-      {/* Bottom Section */}
-      <View style={styles.bottomSection}>
-
-          
-      <View>
-      <Text style={styles.popText}>Pick Yours</Text>
-    </View>
+    
+      <View style={styles.bottomSection}>    
+        
+          <Text style={styles.popText}>Pick Yours</Text>
+        
  
          
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} >
         
-        <View style={{flexDirection: 'row', height: 100}}>
-          <Icecard source={require('../../assets/icecream/cup.png')} label='Cup'/>
-          <Icecard source={require('../../assets/icecream/cone.png')} label='Cone'/>
-          <Icecard source={require('../../assets/icecream/rolls.png')} label='Roll'/>
-          <Icecard source={require('../../assets/icecream/bar.png')} label='Bar'/>
-          <Icecard source={require('../../assets/icecream/sundae.png')} label='Sundae'/>
-          <Icecard source={require('../../assets/icecream/popsicles.png')} label='Popsicles'/>
-          <Icecard source={require('../../assets/icecream/icecreamShake.png')} label='Shakes'/>
-      
+          <View style={{flexDirection: 'row', height: 100}}>
+            <Icecard source={require('../../assets/icecream/cup.png')} label='Cup'/>
+            <Icecard source={require('../../assets/icecream/cone.png')} label='Cone'/>
+            <Icecard source={require('../../assets/icecream/rolls.png')} label='Roll'/>
+            <Icecard source={require('../../assets/icecream/bar.png')} label='Bar'/>
+            <Icecard source={require('../../assets/icecream/sundae.png')} label='Sundae'/>
+            <Icecard source={require('../../assets/icecream/popsicles.png')} label='Popsicles'/>
+            <Icecard source={require('../../assets/icecream/icecreamShake.png')} label='Shakes'/>
+        
+          </View>
+        </ScrollView>
+
+        <View>
+          <Card />
         </View>
-      </ScrollView>
 
       
         
@@ -101,7 +105,7 @@ const styles = StyleSheet.create({
   },
 
   bottomSection: {
-    flex: 1,
+    // flex: 1,
     padding: 20,
     backgroundColor: '#fff',
     marginTop: -40,
@@ -116,8 +120,8 @@ popText: {
   fontSize: 32,
   fontWeight: 'bold',
   color: 'purple',
-  textShadowColor: 'rgba(0, 0, 0, 0.25)',
-  textShadowOffset: { width: 1, height: 2 },
+  textShadowColor: 'rgba(0, 0, 0, 0.35)',
+  textShadowOffset: { width: 2, height: -2 },
   textShadowRadius: 4,
   
 },
