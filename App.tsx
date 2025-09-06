@@ -22,7 +22,7 @@ function App() {
     <View style={styles.container}>
       
 
-      {/* <MealUI /> */}
+      <MealUI />
 
       {/* <ThemeProvider>
         <FlightTicket />
@@ -30,7 +30,7 @@ function App() {
       
       {/* <FlightTicket theme={theme} onToggleTheme={()=>setIsDarkTheme(!isDarkTheme)} /> */}
 
-      <IcecreamUI />
+      {/* <IcecreamUI /> */}
     </View>
   );
 }

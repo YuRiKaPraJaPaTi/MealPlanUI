@@ -1,10 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import MyButton from '../components/MyButton'
-import { Button } from 'react-native'
-import ImageIcon from '../components/ImageIcon'
-import MyText from '../components/MyText'
-import ScheduleItem from '../components/ScheduleItem'
+import MyButton from '../components/Meal/MyButton'
+import MyText from '../components/Meal/MyText'
+import ImageIcon from '../components/Meal/ImageIcon'
+import ScheduleItem from '../components/Meal/ScheduleItem'
+
 
 const MealUI = () => {
   return (
@@ -12,11 +12,11 @@ const MealUI = () => {
             <View style={styles.top}>
                   <ImageIcon 
                         source={require('../../assets/leftArrowIcon.png')}
-                        size={25}
+                        size={20}
                         style={styles.backArrow}
                   />
 
-                  <Text style={{fontSize: 20, textAlign:'center', flex:1}}>Meal Plan</Text>
+                  <Text style={{fontSize: 20,fontWeight:900, textAlign:'center', flex:1}}>Meal Plan</Text>
 
                   <TouchableOpacity style={styles.saveButton}>
                         <Text style={{fontSize: 20, color: 'white'}}>Save</Text>
@@ -109,10 +109,10 @@ const MealUI = () => {
                               title='Meal 1'
                               desc='Avacado Toast with egg'
                         />
-                        {/* <ScheduleItem 
+                        <ScheduleItem 
                               title='Meal 1'
                               desc='Avacado Toast with egg'
-                        /> */}
+                        />
                   </View>
 
             </View>
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
       },
 
       saveButton: {
-            height:45,
+            height:40,
             width: 90,
             backgroundColor: 'blue',
             borderRadius: 20,
