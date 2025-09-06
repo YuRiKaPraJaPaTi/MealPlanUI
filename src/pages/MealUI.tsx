@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 import React from 'react'
 import MyButton from '../components/Meal/MyButton'
 import ImageIcon from '../components/Meal/ImageIcon'
@@ -6,6 +6,7 @@ import CalorieCard from '../components/Meal/CalorieCard'
 import Header from '../components/Meal/Header'
 import SectionTitle from '../components/Meal/SectiionTitle'
 import ScheduleList from '../components/Meal/ScheduleList'
+import ButtonGrid from '../components/Meal/ButtonGrid'
 
 const scheduleData = [
   { title: 'Meal 1', desc: 'Avocado Toast with egg' },
@@ -13,41 +14,26 @@ const scheduleData = [
   { title: 'Meal 3', desc: 'Chicken Salad' },
 ];
 
+const buttonsData = [
+  { label: 'Log a Food', backgroundColor: '#F0E4D3', source: require('../../assets/searchIcon.png') },
+  { label: 'Voice Log', backgroundColor: '#FCC6FF', source: require('../../assets/voiceIcon.png') },
+  { label: 'Scan a Barcode', backgroundColor: '#D1E9F6', source: require('../../assets/scanBarcodeIcon.png')},
+  { label: 'Scan Meal', backgroundColor: '#FFDCDC', source: require('../../assets/scanMealIcon.png')},
+  ];
+
+
+
+
 const MealUI = () => {
       
   return (
-    <View style={styles.app}>
+    <ScrollView style={styles.app}>
 
             <Header title='Meal Plan'/>
             
             <SectionTitle title='DAILY MEAL PLAN' subtitle='Fix your healthy body with us'/>
 
-            <View style={styles.buttonContainer}>
-                  <View style={styles.row}>
-                  <MyButton 
-                              label='Log a Food'
-                              backgroundColor='#F0E4D3'
-                              source={require('../../assets/searchIcon.png')}
-                        />
-                  <MyButton 
-                              label='Voice Log'
-                              backgroundColor='#FCC6FF'
-                              source={require('../../assets/voiceIcon.png')}
-                        />
-                  </View>
-                  <View style={styles.row}>
-                  <MyButton 
-                              label='Scan a Barcode'
-                              backgroundColor='#D1E9F6'
-                              source={require('../../assets/scanBarcodeIcon.png')}
-                        />
-                  <MyButton 
-                              label='Scan Meal'
-                              backgroundColor='#FFDCDC'
-                              source={require('../../assets/scanMealIcon.png')}
-                        />
-                  </View>
-            </View>
+            <ButtonGrid buttons={buttonsData} />
 
             <View style={styles.infoBox}>
                   <View style={{paddingHorizontal:10, paddingTop:15}}>
@@ -72,7 +58,7 @@ const MealUI = () => {
 
 
             
-    </View>
+    </ScrollView>
   )
 }
 
@@ -80,7 +66,7 @@ export default MealUI
 
 const styles = StyleSheet.create({
       app: {
-            flex: 1,
+            // flex: 1,
             paddingTop: 20,
             paddingHorizontal: 20,
             backgroundColor: 'white',
