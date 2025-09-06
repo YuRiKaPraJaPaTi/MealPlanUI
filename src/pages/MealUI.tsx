@@ -1,22 +1,20 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import MyButton from '../components/Meal/MyButton'
 import ImageIcon from '../components/Meal/ImageIcon'
 import ScheduleItem from '../components/Meal/ScheduleItem'
 import CalorieCard from '../components/Meal/CalorieCard'
 import Header from '../components/Meal/Header'
+import SectionTitle from '../components/Meal/SectiionTitle'
 
 
 const MealUI = () => {
   return (
     <View style={styles.app}>
-      
+
             <Header title='Meal Plan'/>
             
-            <View style={{marginVertical:20}}>
-                  <Text style={{fontSize: 25, fontWeight: 900}}>DAILY MEAL PLAN</Text>
-                  <Text style={{fontSize: 20}}>Fix your healthy body with us</Text>
-            </View>
+            <SectionTitle title='DAILY MEAL PLAN' subtitle='Fix your healthy body with us'/>
 
             <View style={styles.buttonContainer}>
                   <View style={styles.row}>
@@ -61,10 +59,8 @@ const MealUI = () => {
                   
             </View>
 
-            <View>
-                  <Text style={{fontSize: 25, fontWeight: 900}}>Track your food</Text>
-                  <Text style={{fontSize: 16, color:'gray'}}>Pro tip: It's easy to be consistent if you log as you go. We like the logging while our food is cooking for between bites.</Text>
-            </View>
+            <SectionTitle title='Track your food' subtitle='Pro tip: Its easy to be consistent if you log as you go. We like the logging while our food is cooking for between bites.'
+            />
 
             <View style={styles.scheduleContainer}>
                   <View style={{flexDirection:'row', paddingTop: 5 }}> 
