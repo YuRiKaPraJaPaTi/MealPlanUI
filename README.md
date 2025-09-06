@@ -1,10 +1,9 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+[![React Native](https://img.shields.io/badge/React_Native-0.71+-blue)](https://reactnative.dev/)
 
 # 🥗 MealUI & ✈️ Flight Ticket UI - React Native
 
-A collection of **React Native UI components** showcasing modern and responsive **Meal Plan UI** and **Flight Ticket UI** screens with **Dark & Light modes**.
-
-[![React Native](https://img.shields.io/badge/React_Native-0.71+-blue)](https://reactnative.dev/)
+A collection of **React Native UI components** showcasing  **Meal Plan UI** and **Flight Ticket UI** screens with **Dark & Light modes**.
 
 ---
 
@@ -64,8 +63,11 @@ yarn android
 ## 🎨 Screenshots
 
 ### MealUI
+![MealUI](./assets/overview/MealUI.jpg)
 
 ### Flight Ticket UI
+![Flight Ticket Light](./assets/overview/flightTicketLight.jpg)
+![Flight Ticket Dark](./assets/overview/flightTicketDark.jpg)
 
 
 
