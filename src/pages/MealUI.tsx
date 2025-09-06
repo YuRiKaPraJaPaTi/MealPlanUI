@@ -4,24 +4,14 @@ import MyButton from '../components/Meal/MyButton'
 import ImageIcon from '../components/Meal/ImageIcon'
 import ScheduleItem from '../components/Meal/ScheduleItem'
 import CalorieCard from '../components/Meal/CalorieCard'
+import Header from '../components/Meal/Header'
 
 
 const MealUI = () => {
   return (
     <View style={styles.app}>
-            <View style={styles.top}>
-                  <ImageIcon 
-                        source={require('../../assets/leftArrowIcon.png')}
-                        size={20}
-                        style={styles.backArrow}
-                  />
-
-                  <Text style={{fontSize: 20,fontWeight:900, textAlign:'center', flex:1}}>Meal Plan</Text>
-
-                  <TouchableOpacity style={styles.saveButton}>
-                        <Text style={{fontSize: 20, color: 'white'}}>Save</Text>
-                  </TouchableOpacity>
-            </View>
+      
+            <Header title='Meal Plan'/>
             
             <View style={{marginVertical:20}}>
                   <Text style={{fontSize: 25, fontWeight: 900}}>DAILY MEAL PLAN</Text>
@@ -119,27 +109,6 @@ const styles = StyleSheet.create({
             paddingTop: 20,
             paddingHorizontal: 20,
             backgroundColor: 'white',
-      },
-      top: {
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-      },
-
-      backArrow: {
-            // margin: 20,
-            backgroundColor: '#f1f1f1',
-            padding: 10,
-            borderRadius: 20,
-      },
-
-      saveButton: {
-            height:40,
-            width: 90,
-            backgroundColor: 'blue',
-            borderRadius: 20,
-            justifyContent:'center',
-            alignItems: 'center',
       },
       
       buttonContainer: {
